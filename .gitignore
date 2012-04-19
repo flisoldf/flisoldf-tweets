@@ -10,6 +10,9 @@ parts
 bin
 var
 sdist
+include
+lib
+local
 develop-eggs
 .installed.cfg
 
