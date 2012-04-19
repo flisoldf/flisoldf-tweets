@@ -1,5 +1,11 @@
 *.py[co]
 
+# Temporary Files
+*.sw[po]
+
+# Local Settings
+settings_local.py
+
 # Packages
 *.egg
 *.egg-info
