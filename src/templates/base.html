@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="pt-BR"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="pt-BR"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="pt-BR"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="pt-BR"> <!--<![endif]-->
+<head>
+
+    <meta charset="utf-8">
+    <title>FLISOL Tweets</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    {% block css %}
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/base_extended.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/skeleton.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/layout.css">
+    {% endblock css %}
+
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon.ico">
+    <link rel="apple-touch-icon" href="{{ STATIC_URL }}img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ STATIC_URL }}img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ STATIC_URL }}img/apple-touch-icon-114x114.png">
+
+</head>
+<body>
+    <div class="container">
+        <div class="sixteen columns">
+            <h1 id="logo" class="remove-bottom" style="margin-top: 40px"><span>FLISOL Tweets</span></h1>
+            <hr />
+        </div>
+        {% block content %}{% endblock content %}
+
+        <div class="sixteen columns" id="footer">
+            <hr />
+            <span>Teste</span>
+        </div>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="javascripts/tabs.js"></script>
+
+</body>
+</html>
