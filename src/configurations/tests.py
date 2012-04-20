@@ -18,3 +18,14 @@ class HashTagsModelTest(TestCase):
 
         self.assertEquals(hashtag.id, 1)
         self.assertEquals(HashTags.objects.count(), 1)
+
+    def test_delete_hastag(self):
+
+        hashtag = HashTags.objects.create(
+            name="Flisol DF",
+            hashtag="#flisoldf"
+        )
+        hashtag.delete()
+
+        self.assertRaises(HashTags.DoesNotExist, HashTags.objects.get,
+                          pk=hashtag.id)
