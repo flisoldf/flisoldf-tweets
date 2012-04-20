@@ -121,7 +121,7 @@ INSTALLED_APPS = (
 
     'south',
 
-    #'configurations',
+    'configurations',
 )
 
 # Auth URLs

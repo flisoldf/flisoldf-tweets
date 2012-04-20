@@ -6,6 +6,11 @@
 # Local Settings
 settings_local.py
 
+# Database local
+*.db
+*.sqlite
+
+
 # Packages
 *.egg
 *.egg-info
