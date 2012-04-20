@@ -3,6 +3,7 @@
 from django.test import TestCase
 
 from configurations.models import HashTags
+from configurations.forms import HashTagForm
 
 
 class HashTagsModelTest(TestCase):
@@ -29,3 +30,33 @@ class HashTagsModelTest(TestCase):
 
         self.assertRaises(HashTags.DoesNotExist, HashTags.objects.get,
                           pk=hashtag.id)
+
+
+class HashTagsFormTest(TestCase):
+    """Class responsible for performing
+    unit tests on the model form ``HashTagsForm``
+    """
+
+    def test_insert_hashtag(self):
+        form = HashTagForm({
+            'name': 'Flisol RJ',
+            'hashtag': '#flisolrj'
+        })
+
+        self.assertTrue(form.is_valid())
+
+    def test_insert_hashtag_with_name_empty(self):
+        form = HashTagForm({
+            'name': '',
+            'hashtag': '#flisolrj'
+        })
+
+        self.assertFalse(form.is_valid())
+
+    def test_insert_hashtag_with_hashtag_empty(self):
+        form = HashTagForm({
+            'name': 'Flisol RJ',
+            'hashtag': ''
+        })
+
+        self.assertFalse(form.is_valid())
