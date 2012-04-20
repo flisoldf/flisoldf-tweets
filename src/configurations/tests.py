@@ -1,6 +1,7 @@
 # -*- coding: utf8 -*-
 
 from django.test import TestCase
+from django.core.urlresolvers import reverse
 
 from configurations.models import HashTags
 from configurations.forms import HashTagForm
@@ -60,3 +61,15 @@ class HashTagsFormTest(TestCase):
         })
 
         self.assertFalse(form.is_valid())
+
+
+class HashTagsViewTest(TestCase):
+    """Class responsible for performing
+    unit test for views.
+    """
+
+    def test_success_list(self):
+        response = self.client.get(reverse('configurations:list'))
+        self.assertEquals(200, response.status_code)
+        self.assertTemplateUsed(response,
+                                'configurations/configurations_list.html')
