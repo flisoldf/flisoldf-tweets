@@ -7,7 +7,7 @@ from django.conf.global_settings import *
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
-PROJECT_PATH = os.path.realpath(os.path.dir(__file__))
+PROJECT_PATH = os.path.dirname(__file__)
 
 
 DATABASES = {

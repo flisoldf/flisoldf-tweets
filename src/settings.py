@@ -5,7 +5,7 @@ import os
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-PROJECT_PATH = os.path.realpath(os.path.dir(__file__))
+PROJECT_PATH = os.path.dirname(__file__)
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
