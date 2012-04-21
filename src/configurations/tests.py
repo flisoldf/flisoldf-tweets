@@ -22,7 +22,6 @@ class HashTagsModelTest(TestCase):
         self.assertEquals(HashTags.objects.count(), 1)
 
     def test_delete_hastag(self):
-
         hashtag = HashTags.objects.create(
             name="Flisol DF",
             hashtag="#flisoldf"
@@ -73,3 +72,9 @@ class HashTagsViewTest(TestCase):
         self.assertEquals(200, response.status_code)
         self.assertTemplateUsed(response,
                                 'configurations/configurations_list.html')
+
+    def test_success_new(self):
+        response = self.client.get(reverse('configurations:new'))
+        self.assertEquals(200, response.status_code)
+        self.assertTemplateUsed(response,
+                                'configurations/configurations_form.html')

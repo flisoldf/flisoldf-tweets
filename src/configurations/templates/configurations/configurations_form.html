@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Configurações</h2>
+    <form action="." method="post">
+        {% csrf_token %}
+        <fieldset>
+            {% for field in form %}
+                {% if field.errors %}
+                    <label>{{ field.label }}: {{ field }}</label>
+                    <span class="errors">{{ field.errors }}</span>
+                {% else %}
+                    <label>{{ field.label }}: {{ field }}</label>
+                {% endif %}
+            {% endfor %}
+            <input type="submit" class="submit" value="Salvar Hashtag" />
+        </fieldset>
+    </form>
+{% endblock content %}

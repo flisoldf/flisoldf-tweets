@@ -1,14 +1,41 @@
 {% extends "base.html" %}
 
+{% block css %}
+    {{ block.super }}
+    <link href="{{ STATIC_URL }}css/tables.css" rel="stylesheet" />
+{% endblock css %}
+
 {% block content %}
         <div class="sixteen columns">
-            <div id="tweets-box">
+            <table id="hor-zebra">
+                <thead>
+                    <tr>
+                        <th>Opções</th>
+                        <th>Rótulo</th>
+                        <th>Hashtag</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for hashtag in hashtags %}
+                        <tr class="{% cycle 'odd' 'even' %}">
+                            <td>
+                                <a href="{% url configurations:edit hashtag.id %}">Editar</a>
+                                <a href="{% url configurations:delete hashtag.id %}">Excluir</a>
+                            </td>
+                            <td>{{ hashtag.name }}</td>
+                            <td>{{ hashtag.hashtag }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a href="{% url configurations:new %}" class="button">Novo Hashtag</a>
+            <!--div id="tweets-box">
                 <p>Skeleton is built on three core principles:</p>
                 <ul class="square">
                     <li><strong>A Responsive Grid Down To Mobile</strong>: Elegant scaling from a browser to tablets to mobile.</li>
                     <li><strong>Fast to Start</strong>: It's a tool for rapid development with best practices</li>
                     <li><strong>Style Agnostic</strong>: It provides the most basic, beautiful styles, but is meant to be overwritten.</li>
                 </ul>
-            </div>
+            </div-->
         </div>
 {% endblock content %}
