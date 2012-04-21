@@ -6,7 +6,7 @@ from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 
 PROJECT_ROOT_PATH = os.path.abspath(os.path.dirname(__file__))
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -19,12 +19,8 @@ DATABASES = {
     'default': {
          # Add 'postgresql_psycopg2', 'postgresql', 'mysql',
          #  'sqlite3' or 'oracle'.
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'flisoltweets',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': '',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(PROJECT_ROOT_PATH, 'flisoltweets.db'),
     }
 }
 
