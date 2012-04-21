@@ -98,6 +98,13 @@ html, body {
 
 .tweet-text a {font-weight: bold;}
 
+span.tweet-date {
+    font-size:80%;
+    float: right;
+    margin-right: 10px;
+    color: gray;
+}
+
 #footer {
     margin-top: 25px;
     text-align: center;
