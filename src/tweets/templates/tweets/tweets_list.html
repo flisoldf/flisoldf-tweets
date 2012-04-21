@@ -11,7 +11,9 @@
                         <img src="{{ tweet.profile_image_url }}" alt="" />
                     </div>
                         <div class="tweet-row">
-                            <a href="http://twitter.com/{{ tweet.from_user }}">{{ tweet.from_user }}</a> <span class="tweet-date">{{ tweet.created_at|twitter_datetime|naturalday }}, {{ tweet.created_at|twitter_datetime }}</span>
+                            <a href="http://twitter.com/{{ tweet.from_user }}">{{ tweet.from_user }}</a> 
+                            <span class="tweet-date">{{ tweet.created_at|twitter_datetime|naturalday }}, 
+                            {{ tweet.created_at|twitter_datetime }}</span>
                             <p class="tweet-text">{{ tweet.text|twitter_text|safe }}</p>
                     </div>
                 </div>

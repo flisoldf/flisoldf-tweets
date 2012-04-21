@@ -13,11 +13,13 @@ from twitter_text import TwitterText
 
 register = Library()
 
-@register.filter(name = 'twitter_text')
+
+@register.filter(name='twitter_text')
 @stringfilter
-def twitter_text(text, search_query = False):
+def twitter_text(text, search_query=False):
     """
-    Parses a text string through the TwitterText auto_link method and if search_query is passed, through the hit_highlight method.
+    Parses a text string through the TwitterText auto_link method and if
+    search_query is passed, through the hit_highlight method.
     """
     tt = TwitterText(text)
     if search_query:
@@ -27,7 +29,7 @@ def twitter_text(text, search_query = False):
 twitter_text.is_safe = True
 
 
-@register.filter(name = 'twitter_datetime')
+@register.filter(name='twitter_datetime')
 def to_datetime(datestring):
     datestring = datestring[:-5] + "+0300"
     time_tuple = parsedate_tz(datestring.strip())
