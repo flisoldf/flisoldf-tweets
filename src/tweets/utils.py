@@ -7,7 +7,7 @@ TWEET_SEARCH_URL = "http://search.twitter.com/search.json?q="
 
 
 class TweetSearch(object):
-    def __init__(self, keyword='flisoldf'):
+    def __init__(self, keyword='flisol'):
         request = urllib.urlopen(TWEET_SEARCH_URL + keyword)
         results = request.read()
 
