@@ -3,18 +3,14 @@
 
 {% block content %}
     <div class="sixteen columns">
-        <div id="tweets-box">
-            {% for tweet in tweets %}
-                <div class="{% cycle 'tweet' 'tweet-odd'%}">
-                    <div class="tweet-image">
-                        <img src="{{ tweet.profile_image_url }}" alt="" />
-                    </div>
-                        <div class="tweet-row">
-                            <a href="http://twitter.com/{{ tweet.from_user }}">{{ tweet.from_user }}</a>
-                            <p class="tweet-text">{{ tweet.text|twitter_text|safe }}</p>
-                    </div>
-                </div>
-            {% endfor %}
+        <div id="tweets-box" data-pagina="1">
         </div>
-</div>
+    </div>
 {% endblock content %}
+
+{% block script %}
+    {{ block.super }}
+    <script src="{{ STATIC_URL }}js/tweets.js" type="text/javascript"></script>
+{% endblock script %}
+
+

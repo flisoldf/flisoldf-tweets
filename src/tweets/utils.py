@@ -3,12 +3,12 @@
 import urllib
 import simplejson as json
 
-TWEET_SEARCH_URL = "http://search.twitter.com/search.json?q="
+TWEET_SEARCH_URL = "http://search.twitter.com/search.json?q=%s&page=%d"
 
 
 class TweetSearch(object):
-    def __init__(self, keyword='flisol'):
-        request = urllib.urlopen(TWEET_SEARCH_URL + keyword)
+    def __init__(self, keyword='flisol', page=1):
+        request = urllib.urlopen(TWEET_SEARCH_URL %(keyword, page))
         results = request.read()
 
         self.results = json.loads(results)

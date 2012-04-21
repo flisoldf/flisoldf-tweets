@@ -22,6 +22,12 @@ class TweetsUtilsTest(TestCase):
 
         self.assertEquals(page, 1)
 
+    def test_capture_tweets_page_two(self):
+        tweets = TweetSearch('flisol', 2)
+        results = tweets.get_tweets()
+
+        assert results
+
 
 class TweetsViewTest(TestCase):
     """Unit test witch verify tweets views"""
