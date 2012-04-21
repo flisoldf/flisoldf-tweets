@@ -122,6 +122,7 @@ INSTALLED_APPS = (
     'south',
 
     'configurations',
+    'tweets',
 )
 
 # Auth URLs

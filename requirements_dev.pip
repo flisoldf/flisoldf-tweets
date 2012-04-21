@@ -1,7 +1,13 @@
 Django==1.3
+Jinja2==2.6
+Pygments==1.5
 South==0.7.4
+Sphinx==1.1.3
 django-debug-toolbar==0.9.4
 django-nose==1.0
+docutils==0.8.1
+ipython==0.12
 nose==1.1.2
 psycopg2==2.4.5
-twitter=1.7.2
+simplejson==2.5.0
+twitter-text-py==1.0.3

@@ -1,4 +1,4 @@
 Django==1.3
 South==0.7.4
 psycopg2==2.4.5
-twitter=1.7.2
+twitter-text-py==1.0.3
