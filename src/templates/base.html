@@ -6,6 +6,7 @@
 <head>
 
     <meta charset="utf-8">
+    <meta equiv="refresh" content="10">
     <title>FLISOL Tweets</title>
     <meta name="description" content="">
     <meta name="author" content="">
@@ -30,21 +31,29 @@
 
 </head>
 <body>
+    <!-- Fork project -->
+    <a href="http://github.com/gilsondev/flisol-tweets"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/7afbc8b248c68eb468279e8c17986ad46549fb71/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub"></a>
     <div class="container">
         <div class="sixteen columns">
-            <a href="#"><h1 id="logo" class="remove-bottom" style="margin-top: 40px"><span>FLISOL Tweets</span></h1></a>
+            <a href="{% url tweets:list %}"><h1 id="logo" class="remove-bottom" style="margin-top: 40px"><span>FLISOL Tweets</span></h1></a>
             <hr />
         </div>
         {% block content %}{% endblock content %}
 
         <div class="sixteen columns" id="footer">
             <hr />
-            <span>Impulsionado com Python e Django</span>
+            <span>Impulsionado com <a href="http://python.org">Python</a> e <a href="http://www.djangoproject.com">Django</a></span>
         </div>
     </div>
 
     <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-    <script src="javascripts/tabs.js"></script>
-
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            window.setTimeout(function() {
+                var url = "/";
+                jQuery('body').load(url);
+            }, 10000);
+        });
+    </script>
 </body>
 </html>
