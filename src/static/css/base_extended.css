@@ -69,6 +69,7 @@ html, body {
     height: 400px;
     margin: 0 auto;
     overflow: auto;
+    display: block;
     background: white;
     border: 1px solid #606060;
     box-shadow: 2px 3px 6px #606060;
@@ -77,10 +78,34 @@ html, body {
 
 }
 
+#tweets-rows {
+    position: relative;
+    min-height: 100%;
+    margin-bottom: 9px
+}
+
+#mais-tweets {
+    width: auto;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #CCC;
+}
+
 a#carrega-tweets {
-    padding: 2px 354px;
-    width: 400px;
-    border: 1px solid #CCC;
+    bottom: 5px;
+    width: auto;
+    text-decoration: none;
+}
+
+    a:hover#carrega-tweets {
+        text-decoration: underline;
+    }
+
+.carregando {
+    list-style: none;
+    padding: 10px 40%;
+    width: auto;
+    font-weight: bold;
 }
 
 .tweet {

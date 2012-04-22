@@ -4,7 +4,12 @@
 
 {% block content %}
     <div class="sixteen columns">
-        <div id="tweets-box" data-pagina="1"></div>
+        <div id="tweets-box">
+            <div id="tweets-rows"></div>
+            <div id="mais-tweets">
+                <a data-pagina="1" href="#" id="carrega-tweets">Mais Tweets</a>
+            </div>
+        </div>
 {% endblock content %}
 
 {% block script %}
