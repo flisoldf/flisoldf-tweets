@@ -166,17 +166,34 @@ a#carrega-tweets {
     font-family: Arial,"Helvetica Neue",sans-serif;
     line-height: 19px;
     color: #374837;
-    font-size: 90%;
+    font-size: 110%;
+    margin-bottom: 10px;
 }
 
     .tweet-text a {font-weight: bold;}
 
-span.tweet-date {
+.tweet-properties {
+    padding: 5px;
+    text-align: right;
     font-size:80%;
-    float: right;
-    margin-right: 10px;
     color: gray;
 }
+
+    .tweet-properties ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    .tweet-properties ul li {
+        display: inline;
+        margin: 0 10px; 
+    }
+
+    .tweet-properties .tweet-date {
+        margin-right: 10px;
+    }
 
 
 /*
