@@ -1,3 +1,28 @@
+/**
+* FLISOL Tweets
+*
+* Standard layout for system
+*
+* This style override configurations of
+* the skeleton stylesheets.
+*
+* @project FLISOL Tweets
+* @version 1.0.0
+* @author Gilson Filho
+*
+* @colordef #f9c565; orange light
+* @colordef #f4880c; orange dark
+* @colordef #374849; green dark
+*/
+
+/*
+ * Default tags
+ *
+ * Define styles for tags of the HTML
+ *
+ * @section default
+ *
+ */
 html, body {
     height: 100%;
     background: #f9c667; /* Old browsers */
@@ -11,6 +36,14 @@ html, body {
 }
 
 
+/*
+ * Header
+ *
+ * Define styles for header witch logo
+ *
+ * @section header
+ *
+ */
 #logo {
     background: url("../img/logo.png") no-repeat;
     width: 265px;
@@ -20,7 +53,16 @@ html, body {
 
     #logo span {display: none;}
 
-/* Tweets */
+/*
+ * Tweets
+ *
+ * Define styles for tweet box and
+ * tweet rows, texts and images of the
+ * users.
+ *
+ * @section tweets
+ *
+ */
 
 #tweets-box {
     width: 800px;
@@ -35,6 +77,12 @@ html, body {
 
 }
 
+a#carrega-tweets {
+    padding: 2px 354px;
+    width: 400px;
+    border: 1px solid #CCC;
+}
+
 .tweet {
     position: relative;
     border-bottom: 1px solid #CCC;
@@ -45,27 +93,27 @@ html, body {
     outline: none;
 }
 
-.tweet a {
-    color: #374837;
-    text-decoration: none;
-}
+    .tweet a {
+        color: #374837;
+        text-decoration: none;
+    }
 
-.tweet a:hover {
-    text-decoration: underline;
-}
+    .tweet a:hover {
+        text-decoration: underline;
+    }
 
-.tweet-odd {
-    background: #f9c565;
-}
+    .tweet-odd {
+        background: #f9c565;
+    }
 
-.tweet-odd a {
-    color: #374837;
-    text-decoration: none;
-}
+    .tweet-odd a {
+        color: #374837;
+        text-decoration: none;
+    }
 
-.tweet-odd a:hover {
-    text-decoration: underline;
-}
+    .tweet-odd a:hover {
+        text-decoration: underline;
+    }
 
 .tweet-image {
     float: left;
@@ -96,7 +144,7 @@ html, body {
     font-size: 90%;
 }
 
-.tweet-text a {font-weight: bold;}
+    .tweet-text a {font-weight: bold;}
 
 span.tweet-date {
     font-size:80%;
@@ -104,6 +152,16 @@ span.tweet-date {
     margin-right: 10px;
     color: gray;
 }
+
+
+/*
+ * Footer
+ *
+ * Define styles for footer
+ *
+ * @section footer
+ *
+ */
 
 #footer {
     margin-top: 25px;
