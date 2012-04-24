@@ -10,7 +10,7 @@ function retorna_tweets(pagina){
     $('#carrega-tweets').hide();
 
     //Insere a mensagem de carregando
-    $('#tweets-rows').append('<li class="carregando">Aguarde, carregando...</li>');
+    $('#tweets-rows').append('<li class="carregando">Aguarde. Carregando...</li>');
 
     $.ajax({
         type: "GET",
@@ -21,31 +21,11 @@ function retorna_tweets(pagina){
         success: function(tweets){
             $('.carregando').fadeOut(function(){
                 //Iterando os tweets e inserindo em uma div
-                for(x in tweets) {
-                    $('#tweets-rows').append(
-                        '<div class="tweet" id="tweet_'+tweets[x].id_str+'">'+
-                            '<div class="tweet-image">'+
-                                '<img src="'+tweets[x].profile_image_url+'" alt="" />'+
-                            '</div>'+
-                            '<div class="tweet-row">'+
-                                '<a href="http://www.twitter.com/'+tweets[x].from_user+'">'+tweets[x].from_user_name+'</a>'+
-                                '<p class="tweet-text">'+tweets[x].text+'</p>'+
-                                '<div class="tweet-properties">'+
-                                    '<ul>'+
-                                        '<li><span id="retweet_'+tweets[x].id_str+'"></span></li>'+
-                                        '<li><span class="tweet-date">'+tweets[x].created_at+'</span></li>'+
-                                    '</ul>'+
-                                '</div>'+
-                            '</div>'+
-                        '</div>'
-                    );
-                    $('#retweet_'+tweets[x].id_str).customRetweet({
-                        url: '',
-                        account: tweets[x].from_user,
-                        title: tweets[x].retweet,
-                        retweetTemplate: 'RT @{{account}} {{title}}',
-                        template: '<a href="{{retweetURL}}">Retweet</a>'
-                    });
+                if (pagina = 1) {
+                    $('.tweet').remove();
+                    for(x in tweets) {
+                        render_tweet(tweets, x);
+                    }
                 }
 
                 // Remove a mensagem de carregando a acrescenta mais um
@@ -54,12 +34,45 @@ function retorna_tweets(pagina){
                 $('#carrega-tweets').data('pagina', pagina + 1).fadeIn();
             });
         },
-        error: function(XMLHttpRequest, textStatus, errorThrown) {
-            alert("Ocorreu um erro: "+ errorThrown);
+        complete: function(){
+            setTimeout('retorna_tweets(1)', 30000);
         }
     });
 }
 
+/*
+ * Função que constrói o bloco do tweet e recebe
+ * os dados para renderização.
+ *
+ * tweet - Dados do tweet
+ * ind - Indice do loop
+ */
+function render_tweet(tweet, ind) {
+    $('#tweets-rows').append(
+        '<div class="tweet" id="tweet_'+tweet[ind].id_str+'">'+
+            '<div class="tweet-image">'+
+                '<img src="'+tweet[ind].profile_image_url+'" alt="" />'+
+            '</div>'+
+            '<div class="tweet-row">'+
+                '<a href="http://www.twitter.com/'+tweet[ind].from_user+'">'+tweet[ind].from_user_name+'</a>'+
+                '<p class="tweet-text">'+tweet[ind].text+'</p>'+
+                '<div class="tweet-properties">'+
+                    '<ul>'+
+                        '<li><span id="retweet_'+tweet[ind].id_str+'"></span></li>'+
+                        '<li><span class="tweet-date">'+tweet[ind].created_at+'</span></li>'+
+                    '</ul>'+
+                '</div>'+
+            '</div>'+
+        '</div>'
+    );
+    $('#retweet_'+tweet[ind].id_str).customRetweet({
+        url: '',
+        account: tweet[ind].from_user,
+        title: tweet[ind].retweet,
+        retweetTemplate: 'RT @{{account}} {{title}}',
+        template: '<a href="{{retweetURL}}">Retweet</a>'
+    });
+}
 
 $(function(){
     retorna_tweets(1);
