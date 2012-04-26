@@ -1,6 +1,6 @@
-from tests import TweetsViewTest, TweetUtilsTest
+from tests import TweetsViewTest, TweetsUtilsTest
 
 __test__ = {
-    'TWEET_UTILS_TEST': TweetUtilsTest,
+    'TWEET_UTILS_TEST': TweetsUtilsTest,
     'TWEETS_VIEW_TEST': TweetsViewTest
 }
