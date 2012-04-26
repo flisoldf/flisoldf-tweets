@@ -35,3 +35,8 @@ class TweetsViewTest(TestCase):
         response = self.client.get(reverse('tweets:list'))
         self.assertEquals(200, response.status_code)
         self.assertTemplateUsed(response, 'tweets/tweets_list.html')
+
+    def test_success_list_fullscreen(self):
+        response = self.client.get(reverse('tweets:fullscreen'))
+        self.assertEquals(200, response.status_code)
+        self.assertTemplateUsed(response, 'tweets/tweets_fullscreen.html')

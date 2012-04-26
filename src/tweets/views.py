@@ -13,6 +13,10 @@ def list(request):
     return render(request, 'tweets/tweets_list.html')
 
 
+def list_fullscreen(request):
+    return render(request, 'tweets/tweets_fullscreen.html')
+
+
 def list_ajax(request):
     page = request.GET.get('page')
     tweets = TweetSearch(page=int(page))
