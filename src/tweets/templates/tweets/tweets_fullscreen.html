@@ -1,20 +1,70 @@
-{% extends "base.html" %}
-{% load twitterize %}
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="pt-BR"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="pt-BR"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="pt-BR"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="pt-BR"> <!--<![endif]-->
+<head>
 
-{% block content %}
-    <div class="sixteen columns">
+    <meta charset="utf-8">
+    <!-- meta equiv="refresh" content="30"-->
+    <title>FLISOL Tweets</title>
+    <meta name="description" content="Saiba de tudo o que está rolando no FLISOL com esse agregador.">
+    <meta name="author" content="Gilson Filho">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    {% block css %}
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/base_extended.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/tweets_fullscreen.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/fullscreen.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/skeleton.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/layout.css">
+    {% endblock css %}
+
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon.ico">
+    <link rel="apple-touch-icon" href="{{ STATIC_URL }}img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ STATIC_URL }}img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ STATIC_URL }}img/apple-touch-icon-114x114.png">
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-31082504-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
+</head>
+<body>
+    <div class="container-fullscreen">
+        <div id="header-fullscreen">
+            <a href="{% url tweets:list %}"><h1 id="logo-fullscreen" class="remove-bottom" style="margin-top: 40px"><span>FLISOL Tweets</span></h1></a>
+        </div>
         <div id="tweets-box">
             <div id="tweets-rows"></div>
-            <div id="mais-tweets">
-                <!--a data-pagina="1" href="#" id="carrega-tweets">Mais Tweets</a-->
-            </div>
         </div>
-{% endblock content %}
+    </div>
 
-{% block script %}
-    {{ block.super }}
-    <script src="{{ STATIC_URL }}js/tweets.js" type="text/javascript"></script>
-    <script src="{{ STATIC_URL }}js/customRetweet.min.js" type="text/javascript"></script>
-{% endblock script %}
-
-
+    {% block script %}
+        <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <script src="{{ STATIC_URL }}js/tweets.js" type="text/javascript"></script>
+        <script src="{{ STATIC_URL }}js/customRetweet.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                retorna_tweets(1, true);
+            });
+        </script>
+    {% endblock script %}
+</body>
+</html>

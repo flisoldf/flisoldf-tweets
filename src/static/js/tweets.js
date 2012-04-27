@@ -4,8 +4,9 @@
  * formatados (links, usernames, hashtags).
  *
  * pagina: número da página a ser pesquisada (padrão: 1)
+ * fullscreen: invoca e gera os tweets via fullscreen ou não (padrão: false)
  */
-function retorna_tweets(pagina){
+function retorna_tweets(pagina, fullscreen){
     //Oculta o link 'Mais Tweets'
     $('#carrega-tweets').hide();
 
@@ -24,7 +25,11 @@ function retorna_tweets(pagina){
                 if (pagina = 1) {
                     $('.tweet').remove();
                     for(x in tweets) {
-                        render_tweet(tweets, x);
+                        if(!fullscreen) {
+                            render_tweet(tweets, x);
+                        } else {
+                            render_tweet_fullscreen(tweets, x);
+                        }
                     }
                 }
 
@@ -35,7 +40,11 @@ function retorna_tweets(pagina){
             });
         },
         complete: function(){
-            setTimeout('retorna_tweets(1)', 30000);
+            if(!fullscreen) {
+                setTimeout('retorna_tweets(1, false)', 30000);
+            } else {
+                setTimeout('retorna_tweets(1, true)', 30000);
+            }
         }
     });
 }
@@ -74,14 +83,23 @@ function render_tweet(tweet, ind) {
     });
 }
 
-$(function(){
-    retorna_tweets(1);
-    /*
-    * Evento que ao clicar no link 'Mais Tweets' será
-    * requisitado os tweets mais antigos.
-    */
-    $('#carrega-tweets').click(function(e){
-        retorna_tweets($(this).data('pagina'));
-        e.preventDefault();
-    });
-});
+/*
+ * Função que constrói o bloco do tweet e recebe
+ * os dados para renderização na página fullscreen.
+ *
+ * tweet - Dados do tweet
+ * ind - Indice do loop
+ */
+function render_tweet_fullscreen(tweet, ind) {
+    $('#tweets-rows').append(
+        '<div class="tweet" id="tweet_'+tweet[ind].id_str+'">'+
+            '<div class="tweet-image">'+
+                '<img src="'+tweet[ind].profile_image_url+'" alt="" />'+
+            '</div>'+
+            '<div class="tweet-row">'+
+                '<a href="http://www.twitter.com/'+tweet[ind].from_user+'">'+tweet[ind].from_user_name+'</a>'+
+                '<p class="tweet-text">'+tweet[ind].text+'</p>'+
+            '</div>'+
+        '</div>'
+    );
+}
