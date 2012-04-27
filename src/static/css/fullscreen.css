@@ -1,0 +1,55 @@
+/**
+* FLISOL Tweets
+*
+* Standard layout for fullscreen page
+*
+* This style override configurations of
+* the skeleton stylesheets and created for
+* fullscreen page.
+*
+* @project FLISOL Tweets
+* @version 1.0.0
+* @author Gilson Filho
+*
+* @colordef #f9c565; orange light
+* @colordef #f4880c; orange dark
+* @colordef #374849; green dark
+*/
+
+/*
+ * Default tags
+ *
+ * Define styles for tags of the HTML
+ *
+ * @section default
+ *
+ */
+html, body {
+    height: 100%;
+    background: url("../img/bg.png");
+}
+
+
+/*
+ * Fullscreen Page
+ *
+ * Define styles for fullscreen page witch
+ * using with datashows, etc.
+ *
+ * @section fullscreen
+ *
+ */
+
+.container-fullscreen {
+    width: auto;
+}
+
+#logo-fullscreen {
+    background: url("../img/logo-fullscreen.png") no-repeat;
+    width: 160px;
+    height: 75px;
+    margin: 0 auto;
+    padding-bottom: 15px;
+}
+
+    #logo-fullscreen span {display: none;}
