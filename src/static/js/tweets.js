@@ -41,9 +41,9 @@ function retorna_tweets(pagina, fullscreen){
         },
         complete: function(){
             if(!fullscreen) {
-                setTimeout('retorna_tweets(1, false)', 30000);
+                setTimeout('retorna_tweets(1, false)', 10000);
             } else {
-                setTimeout('retorna_tweets(1, true)', 30000);
+                setTimeout('retorna_tweets(1, true)', 10000);
             }
         }
     });
